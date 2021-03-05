@@ -1,0 +1,30 @@
+.go {
+  margin: 5rem;
+  background-color: white;
+  width: 10rem;
+  padding: 5rem;
+  transition: all 0.2s;
+}
+body {
+  background-color: blueviolet;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.red {
+  background-color: crimson;
+}
+
+.square{
+    border-radius: 10%;
+}
+.purple{
+    background-color: darkmagenta;
+    color: white;
+}
+
+.fadeOut{
+    opacity: 0;
+}
