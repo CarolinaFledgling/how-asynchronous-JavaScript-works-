@@ -1,6 +1,7 @@
 // // CALLBACK HELL 
 
 // const go = document.querySelector('.go')
+
 // //1. Change the text to 'go' when clicked
 // go.addEventListener('click2', function (e) {
 //     const el = e.currentTarget;
@@ -231,93 +232,366 @@
 
 
 
-// Ćwiczenia z Markiem - mentorem  ( Wersja łatwiejsza wg Marka )
-// Opóżnienie wyświetlanego tekstu o ileś sekund 
+// // Ćwiczenia z Markiem - mentorem  ( Wersja łatwiejsza wg Marka )
+// // Opóżnienie wyświetlanego tekstu o ileś sekund 
 
 
 
-const display = (tekst) => {
-    const display = console.log(`wpisany: ${tekst}`)
-    return display
-}
+// const display = (tekst) => {
+//     const display = console.log(`wpisany: ${tekst}`)
+//     return display
+// }
 
-function delay(time) {
-    return new Promise((resolve, reject) => {
-        setTimeout(resolve, time)
-    })
-}
+// function delay(time) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(resolve, time)
+//     })
+// }
 
-function sayHi(name) {
-    const greetings = console.log(`cześć, ${name}`)
-    return greetings;
-}
-
-
-
-function delayAndDisplay() {
-    delay(5000)
-        .then(() => {
-            return display(' tekst #1 po 1sekundzie');
-        })
-        .then(() => {
-            return delay(3000);
-        })
-        .then(() => {
-            return display(' tekst #2 po 3sekundach od wyświetlonego tekstu #1')
-        })
-        .then(() => {
-            return delay(1000)
-        })
-        .then(() => {
-            return display('tekst #3')
-        })
-        .then(() => {
-            return delay(2000)
-        })
-        .then(()=>{
-            return sayHi('Karolina')
-        })
-}
-
-delayAndDisplay()
+// function sayHi(name) {
+//     const greetings = console.log(`cześć, ${name}`)
+//     return greetings;
+// }
 
 
 
-// zapytac sie o cos 
+// function delayAndDisplay() {
+//     delay(5000)
+//         .then(() => {
+//             return display(' tekst #1 po 1sekundzie');
+//         })
+//         .then(() => {
+//             return delay(3000);
+//         })
+//         .then(() => {
+//             return display(' tekst #2 po 3sekundach od wyświetlonego tekstu #1')
+//         })
+//         .then(() => {
+//             return delay(1000)
+//         })
+//         .then(() => {
+//             return display('tekst #3')
+//         })
+//         .then(() => {
+//             return delay(2000)
+//         })
+//         .then(() => {
+//             return sayHi('Karolina')
+//         })
+// }
 
-function delay2(time) {
-    return new Promise(function (resolve, rejecet) {
-        // setTimeout(resolve, time)
+// delayAndDisplay()
+
+
+
+// Przygotuj herbate z promisami 
+
+
+// function wait(time = 0) {
+//     return new Promise((resolve) => {
+//         // setTimeout(resolve, time)
+//         setTimeout(() => {
+//             resolve()
+//         }, time)
+//     })
+// }
+
+// function takeCup() {
+//     return console.log(' take a cup ')
+// }
+
+// function boilWater() {
+//     return console.log(' boil the water ')
+// }
+
+// function takeTeabag() {
+//     return console.log('put the tea bag in the cup ')
+// }
+
+// function takeHotWater() {
+//     return console.log('pour water into a cup ')
+// }
+
+
+
+// function makeTea(flavor) {
+//     wait(2000)
+//         .then(() => {
+//             takeCup()
+//             return wait(2000)
+//         })
+//         .then(() => {
+//             boilWater()
+//             return wait(3000)
+//         })
+//         .then(() => {
+//             takeTeabag()
+//             return wait(1000)
+//         })
+//         .then(() => {
+//             takeHotWater()
+//             return (wait(1000))
+//         })
+//         .then(() => {
+//             console.log(' your tea is ready !')
+//         })
+// }
+
+
+// makeTea('strawberry') 
+
+
+
+// // Zadanie od Marka wersja rozbudowana 
+// // powinno wyglądać tak 
+
+
+// // Promise.resolve()
+// //     .then(opoznij(500))
+// //     .then(wyswietl())
+// //     .then(opoznij(500))
+// //     .then(wyswietl()) // ile czasu minęło od początku 
+// //     .then(wyswietl())
+// //     .then(wyswietl())
+// //     .then(opozniej(1500))
+
+
+
+
+// Nauka - Async Await  
+
+
+// function wait2(ms = 0) {
+//     return new Promise((resolve) => {
+//         setTimeout(resolve, ms)
+//     })
+// }
+
+
+// async function go() {
+//     console.log('starting');
+//     await wait2(3000)
+//     console.log('running');
+//     await wait2(3000)
+//     console.log('ending');
+// }
+
+// // go();
+
+// // example #2  Asyn await 
+
+
+
+// function getDessert(flavour) {
+//     return new Promise((resolve, rejecet) => {
+//         if (flavour.includes('sugar')) {
+//             rejecet('too much ! , get out ! ')
+//         }
+//         setTimeout(() => {
+//             resolve(`here is your ${flavour} 🍨`)
+//         }, 3000)
+//     })
+
+// }
+
+
+// async function getIceCream() {
+//     const iceCream1 = await getDessert('chocolate')
+//     console.log(iceCream1)
+//     const iceCream2 = await getDessert('vanilla')
+//     console.log(iceCream2)
+//     try {
+//         const iceCream3 = await getDessert('sugar')
+//         console.log(iceCream3)
+
+//     } catch (err) {
+//         console.log('error,', err)
+//     }
+// }
+
+
+// function handleError(err) {
+//     console.log('oh noo ', err)
+// }
+
+// // getIceCream().catch(handleError)
+// getIceCream()
+
+
+
+// // what if we want get 2 desserts at the same time 
+
+
+// async function getIceCream2() {
+//     const iceCreamPromise1 = getDessert('chocolate')
+//     const iceCreamPromise2 = getDessert('vanilla')
+
+//     const iceCreams = await Promise.all([iceCreamPromise1, iceCreamPromise2])
+//     console.log(iceCreams)
+//     // destrukturtyzacja 
+//     const [chocolate, vanilla] = await Promise.all([iceCreamPromise1, iceCreamPromise2])
+//     console.log(chocolate, vanilla)
+// }
+
+// getIceCream2()
+
+
+
+
+// // // Asyn await animate 
+
+
+// function wait3(ms = 0) {
+//     return new Promise(function (resolve, rejecet) {
+//         setTimeout(resolve, ms)
+
+//     })
+// }
+
+
+
+// async function animate2(e) {
+//     //1. Change the text to 'go' when clicked
+//     const el = e.currentTarget;
+//     el.textContent = "GO"
+//     //2. Make it a circle after 2 seconds
+//     await wait3(200)
+//     el.classList.add('circle');
+//     await wait3(500)
+//     el.classList.add('red');
+//     await wait3(250)
+//     el.classList.add('square')
+//     await wait3(300)
+//     el.classList.add('purple')
+//     el.classList.remove('red');
+//     await wait3(500)
+//     el.classList.add('fadeOut')
+// }
+
+// const go2 = document.querySelector('.go')
+
+// go2.addEventListener('click', animate2)
+
+
+
+
+//  Asyn await 
+
+const getUserData = () => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(a)
-        }, time)
+            console.log('1.get user data')
+            resolve({
+                name: 'Kasia'
+            })
+
+        }, 1000)
     })
 }
 
-let a = 5;
-
-delay2(2000)
-    .then((a) => {
-        a = 10;
-        console.log(a, 'działa') // chciałabym aby a = 10, było przejete ponizej ?
-
-        return delay2(2000)
-    }).then((a) => {
-        console.log(a, 'cos innego ')
+const registerUser = (user) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('2. register user')
+            resolve({
+                name: user.name,
+                id: 23,
+            })
+        }, 2000)
     })
+}
+
+const sendEmail = (user) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('3. send cofirmation email to', user.name, 'id', user.id)
+            resolve()
+        }, 2000)
+    })
+}
+
+// getUserData()
+//     .then(user => {
+//         console.log(user)
+//         return registerUser(user)
+//     })
+//     .then(registerUser => {
+//         console.log(registerUser)
+//         return sendEmail(registerUser)
+//     })
+//     .then(() => {
+//         console.log('end')
+//     })
+
+// async function someAsyncFunctions() { // pojemnik na asynchroniczne operacje i nie asynchroniczne 
+//     const userData = await getUserData() // await mówi .. poczekaj w tym miejscu az ta funkcja się wykona, dopiero jak sie wykona leć dalej , zapisz do zmiennej to co zwraca ta funkcja  
+//     const registeredUser = await registerUser(userData) // zaczekaj aż to się wykona żeby lecieć dalej ...
+//     await sendEmail(registeredUser) // poczekaj aż e-mail się wyśle i dopiero leć dalej 
+//     // await może być użyte tylko w asynchronicznej funkcji 
+//     console.log('end')
+// }
 
 
 
-// Zadanie od Marka wersja rozbudowana 
-// powinno wyglądać tak 
+// someAsyncFunctions()
 
 
-Promise.resolve()
-    .then(opoznij(500))
-    .then(wyswietl())
-    .then(opoznij(500))
-    .then(wyswietl()) // ile czasu minęło od początku 
-    .then(wyswietl())
-    .then(wyswietl())
-    .then(opozniej(1500))
 
+
+
+
+// Asyn Await wyłapywanie błędów 
+
+// const getUser = () => {
+//     return new Promise((resolve, rejecet) => {
+//         setTimeout(() => {
+//             console.log('1.get user data')
+//             rejecet('some error')
+//             resolve({
+//                 name: 'Kasia',
+//                 age: 24,
+//                 city: 'Jaworzno'
+//             })
+
+//         }, 1000)
+//     })
+// }
+
+
+// const userInfo = async () => {
+//     try { // spróbuje pobrac uzytkownika i go wykonsolować
+//         const userDetails = await getUser();
+//         console.log(userDetails)
+//     } catch (err) {
+//         console.log(err)
+//     } finally {
+//         console.log(' finalnie zawsze normalnie działa, czy jest bład czy nie  ')
+//     }
+
+// }
+
+// userInfo()
+
+
+
+const getInfo = () => {
+    const user = null;
+
+    if (user) {
+        return user;
+    } else {
+        throw 'user not found' // można wyrzuć tutaj wszystko obiekt, liczbe itp 
+    }
+}
+
+const asynFn = async () => {
+    try {
+        const user = getInfo()
+        console.log(user)
+    } catch (err) {
+        console.log('error:' + err)
+    }
+}
+
+
+asynFn()
